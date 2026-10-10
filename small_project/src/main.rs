@@ -11,13 +11,13 @@ fn main() {
         io::stdin()
             .read_line(&mut price1)
             .unwrap();
-        let price1 = clean_price1.trim();
+        let clean_price1 = price1.trim();
 
         if clean_price1 == "q" {
             return;
         }
 
-        let clean_price1: f64 = match price1.parse() {
+        let clean_price1: f64 = match clean_price1.parse() {
             Ok(n) => n,
             Err(_) => {
                 println!("Error try again");
@@ -44,10 +44,9 @@ fn main() {
             }
         };
 
-        let final_price = clean_price * (1.0 - clean_discount / 100.0);
+        let final_price = clean_price1 * (1.0 - clean_discount / 100.0);
         //Here we put this process to output the final result after the discount
 
         println!("The final price is >>> {}", final_price);
     }
 }
-
